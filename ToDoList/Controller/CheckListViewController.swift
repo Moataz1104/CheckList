@@ -11,7 +11,6 @@ import UIKit
 
 class CheckListViewController: UITableViewController {
     let checkListData=CheckListData()
-    
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -21,7 +20,16 @@ class CheckListViewController: UITableViewController {
             let controller = segue.destination as! ItemDetailViewController
             controller.delegate = self
         }
+        else if segue.identifier == "EditItem"{
+            let controller = segue.destination as! ItemDetailViewController
+            controller.delegate=self
+            if let indexPath=tableView.indexPath(for: sender as! UITableViewCell){
+                controller.itemToEdit = checkListData.itemsList[indexPath.row]
+            }
+        }
+        
     }
+    
 }
 
 // MARK: - TableView Data Source
@@ -35,6 +43,7 @@ extension CheckListViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCell", for: indexPath) as! ItemCell
         cell.textLabel?.text=checkListData.itemsList[indexPath.row].text
         cell.checkMark.text=""
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -49,6 +58,14 @@ extension CheckListViewController{
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let indexRemoved=IndexPath(row: indexPath.row, section: 0)
+        checkListData.itemsList.remove(at: indexPath.row)
+
+        tableView.deleteRows(at: [indexRemoved], with: .automatic)
+    }
+
     
 }
 
@@ -65,6 +82,15 @@ extension CheckListViewController:ItemDetailViewControllerDelegate{
         let indexPath=IndexPath(row: newIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
         navigationController?.popViewController(animated: true)
+    }
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ItemData) {
+        if let index = checkListData.itemsList.firstIndex(of: item){
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath){
+                cell.textLabel?.text=item.text
+            }
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     

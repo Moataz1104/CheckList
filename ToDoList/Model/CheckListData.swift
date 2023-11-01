@@ -5,8 +5,10 @@
 //  Created by Moataz Mohamed on 31/10/2023.
 //
 
+import ObjectiveC
 
-class CheckListData{
+
+class CheckListData:NSObject {
     
     var name=""
     var itemsList:[ItemData]=[]

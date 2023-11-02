@@ -18,6 +18,7 @@
 		00B8C1062AF09A0300373223 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B8C1052AF09A0300373223 /* ItemDetailViewController.swift */; };
 		00B8C1082AF09B2100373223 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B8C1072AF09B2100373223 /* ItemData.swift */; };
 		00B8C10B2AF09BA400373223 /* CheckListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B8C10A2AF09BA400373223 /* CheckListData.swift */; };
+		00D9D7442AF319B700284C5B /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D9D7432AF319B700284C5B /* HelperMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		00B8C1052AF09A0300373223 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		00B8C1072AF09B2100373223 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		00B8C10A2AF09BA400373223 /* CheckListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListData.swift; sourceTree = "<group>"; };
+		00D9D7432AF319B700284C5B /* HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				00B8C0E72AF0937000373223 /* AppDelegate.swift */,
 				00B8C0E92AF0937000373223 /* SceneDelegate.swift */,
+				00D9D7432AF319B700284C5B /* HelperMethods.swift */,
 				00B8C0FE2AF0938400373223 /* Model */,
 				00B8C0FF2AF0939100373223 /* View */,
 				00B8C1002AF093A400373223 /* Controller */,
@@ -198,6 +201,7 @@
 				00B8C10B2AF09BA400373223 /* CheckListData.swift in Sources */,
 				00B8C0E82AF0937000373223 /* AppDelegate.swift in Sources */,
 				00B8C1062AF09A0300373223 /* ItemDetailViewController.swift in Sources */,
+				00D9D7442AF319B700284C5B /* HelperMethods.swift in Sources */,
 				00B8C0EA2AF0937000373223 /* SceneDelegate.swift in Sources */,
 				00B8C0F22AF0937100373223 /* ToDoList.xcdatamodeld in Sources */,
 				00B8C1042AF094F500373223 /* ItemCell.swift in Sources */,

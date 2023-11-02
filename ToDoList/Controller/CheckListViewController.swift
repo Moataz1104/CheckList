@@ -25,6 +25,7 @@ class CheckListViewController: UITableViewController {
             controller.delegate=self
             if let indexPath=tableView.indexPath(for: sender as! UITableViewCell){
                 controller.itemToEdit = checkListData.itemsList[indexPath.row]
+                print("EditItem Segue \(indexPath.row) , \(checkListData.itemsList[indexPath.row].text)")
             }
         }
         
@@ -41,20 +42,13 @@ extension CheckListViewController{
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCell", for: indexPath) as! ItemCell
-        cell.textLabel?.text=checkListData.itemsList[indexPath.row].text
-        cell.checkMark.text=""
+        configureCell(cell, item: checkListData.itemsList[indexPath.row])
         
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? ItemCell{
-            if checkListData.itemsList[indexPath.row].check == false{
-                cell.checkMark.text="✓"
-                checkListData.itemsList[indexPath.row].check.toggle()
-            }else{
-                cell.checkMark.text=""
-                checkListData.itemsList[indexPath.row].check.toggle()
-            }
+            configureCheckMark(cell, item: checkListData.itemsList[indexPath.row])
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

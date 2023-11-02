@@ -21,7 +21,6 @@ class ItemDetailViewController:UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text=item.text

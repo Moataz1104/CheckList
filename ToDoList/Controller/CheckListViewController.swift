@@ -12,7 +12,7 @@ import UIKit
 class CheckListViewController: UITableViewController {
     let checkListData=CheckListData()
     override func viewDidLoad() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
     }
 //    MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

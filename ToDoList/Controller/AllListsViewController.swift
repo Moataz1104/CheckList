@@ -12,7 +12,6 @@ class AllListsViewController:UITableViewController {
     
     var listsData=[CheckListData]()
     let listCellIdentfier = "listCell"
-    var fakeData=["1","a","v","4"]
     override func viewDidLoad() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentfier)
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -57,7 +56,7 @@ extension AllListsViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentfier, for: indexPath)
         cell.textLabel?.text=listsData[indexPath.row].name
         cell.accessoryType = .detailDisclosureButton
-        cell.imageView?.image=UIImage(named: "Trips")
+        cell.imageView?.image=UIImage(named: "Folder")
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -21,7 +21,11 @@ class ListDetailViewConrtoller:UITableViewController{
     var delegate:ListDetailViewConrtollerDelegate?
     @IBOutlet var textField:UITextField!
     @IBOutlet var doneBarButton:UIBarButtonItem!
+    @IBOutlet var iconImage:UIImageView!
+    @IBOutlet var iconLabel:UILabel!
     override func viewDidLoad() {
+        textField.delegate=self
+        
         navigationItem.largeTitleDisplayMode = .never
         textField.becomeFirstResponder()
         
@@ -30,6 +34,8 @@ class ListDetailViewConrtoller:UITableViewController{
             title="Edit List Name"
             textField.text=list.name
             doneBarButton.isEnabled=true
+        }else{
+            doneBarButton.isEnabled=false
         }
     }
     
@@ -47,6 +53,15 @@ class ListDetailViewConrtoller:UITableViewController{
     @IBAction func cancel(){
         delegate?.ListDetailViewConrtollerDidCancel(self)
     }
+    
+    //    MARK: - Navigation
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier=="showIcons"{
+                let controller=segue.destination as! IconPickerViewController
+                controller.delegate=self
+            }
+        }
+
 }
 
 
@@ -67,4 +82,17 @@ extension ListDetailViewConrtoller:UITextFieldDelegate{
         doneBarButton.isEnabled=false
         return true
     }
+}
+
+
+// MARK: - Icon Picker delegate
+
+extension ListDetailViewConrtoller:IconPickerViewControllerDelegate{
+    func iconPickerViewController(_ controller: IconPickerViewController, didFinishPicking icon: String) {
+        iconLabel.text=icon
+        iconImage.image=UIImage(named: icon)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }

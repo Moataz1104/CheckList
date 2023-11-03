@@ -6,17 +6,17 @@
 //
 
 import UIKit
-
+import Foundation
 
 class CheckListData:Equatable {
     static func == (lhs: CheckListData, rhs: CheckListData) -> Bool {
         lhs.name==rhs.name
     }
-    
-    
     var name:String=""
-//    var itemsList:[ItemData]=[]
     init(name: String) {
         self.name = name
     }
+
+    
+
 }

@@ -68,6 +68,12 @@ extension AllListsViewController{
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         performSegue(withIdentifier: "editItem", sender: indexPath)
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let index=listsData.firstIndex(of: listsData[indexPath.row])!
+        let indexPath=IndexPath(row: index, section: 0)
+        listsData.remove(at: index)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     
 }
 

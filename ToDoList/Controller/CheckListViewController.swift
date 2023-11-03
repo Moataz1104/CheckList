@@ -10,8 +10,10 @@ import UIKit
 
 
 class CheckListViewController: UITableViewController {
-    let checkListData=CheckListData()
+    var items=[ItemData]()
+    var checkLists:CheckListData!
     override func viewDidLoad() {
+        title=checkLists.name
         navigationItem.largeTitleDisplayMode = .never
     }
 //    MARK: - Navigation
@@ -24,8 +26,8 @@ class CheckListViewController: UITableViewController {
             let controller = segue.destination as! ItemDetailViewController
             controller.delegate=self
             if let indexPath=tableView.indexPath(for: sender as! UITableViewCell){
-                controller.itemToEdit = checkListData.itemsList[indexPath.row]
-                print("EditItem Segue \(indexPath.row) , \(checkListData.itemsList[indexPath.row].text)")
+                controller.itemToEdit = items[indexPath.row]
+                print("EditItem Segue \(indexPath.row) , \(items[indexPath.row].text)")
             }
         }
         
@@ -38,24 +40,24 @@ class CheckListViewController: UITableViewController {
 extension CheckListViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return checkListData.itemsList.count
+        return items.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCell", for: indexPath) as! ItemCell
-        configureCell(cell, item: checkListData.itemsList[indexPath.row])
+        configureCell(cell, item: items[indexPath.row])
         
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? ItemCell{
-            configureCheckMark(cell, item: checkListData.itemsList[indexPath.row])
+            configureCheckMark(cell, item: items[indexPath.row])
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let indexRemoved=IndexPath(row: indexPath.row, section: 0)
-        checkListData.itemsList.remove(at: indexPath.row)
+        items.remove(at: indexPath.row)
 
         tableView.deleteRows(at: [indexRemoved], with: .automatic)
     }
@@ -71,14 +73,14 @@ extension CheckListViewController:ItemDetailViewControllerDelegate{
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ItemData) {
-        let newIndex=checkListData.itemsList.count
-        checkListData.itemsList.append(item)
+        let newIndex=items.count
+        items.append(item)
         let indexPath=IndexPath(row: newIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
         navigationController?.popViewController(animated: true)
     }
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ItemData) {
-        if let index = checkListData.itemsList.firstIndex(of: item){
+        if let index = items.firstIndex(of: item){
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath){
                 cell.textLabel?.text=item.text

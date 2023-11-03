@@ -10,7 +10,7 @@ import UIKit
 
 class AllListsViewController:UITableViewController {
     
-    var listsData=[CheckListData()]
+    var listsData=[CheckListData]()
     let listCellIdentfier = "listCell"
     var fakeData=["1","a","v","4"]
     override func viewDidLoad() {
@@ -33,6 +33,9 @@ class AllListsViewController:UITableViewController {
         }else if segue.identifier == "addItem"{
             let controller=segue.destination as! ListDetailViewConrtoller
             controller.delegate=self
+        }else if segue.identifier == "showItems"{
+            let controller=segue.destination as! CheckListViewController
+            controller.checkLists=sender as? CheckListData
         }
     }
     
@@ -52,13 +55,14 @@ extension AllListsViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentfier, for: indexPath)
-        cell.textLabel?.text=fakeData[indexPath.row]
+        cell.textLabel?.text=listsData[indexPath.row].name
         cell.accessoryType = .detailDisclosureButton
         cell.imageView?.image=UIImage(named: "Trips")
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showItems", sender: nil)
+        let checkLists=CheckListData(name: listsData[indexPath.row].name)
+        performSegue(withIdentifier: "showItems", sender: checkLists)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {

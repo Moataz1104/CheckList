@@ -14,8 +14,9 @@ class CheckListData:Equatable {
     }
     
     
-    var name:String?
-    var image:UIImage?
-    var itemsList:[ItemData]=[]
-    
+    var name:String=""
+//    var itemsList:[ItemData]=[]
+    init(name: String) {
+        self.name = name
+    }
 }

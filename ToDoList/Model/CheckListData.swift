@@ -13,6 +13,7 @@ class CheckListData:Equatable {
         lhs.name==rhs.name
     }
     var name:String=""
+    var itemsList:[ItemData]=[]
     var iconName="No Folder"
     init(name: String) {
         self.name = name

@@ -20,6 +20,10 @@ class IconPickerViewController:UITableViewController{
         super.viewDidLoad()
     }
 
+        
+    @IBAction func cancel(){
+        navigationController?.popViewController(animated: true)
+    }
     
     
     

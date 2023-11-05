@@ -169,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="716" y="-9"/>
         </scene>
-        <!--AddList-->
+        <!--List Name-->
         <scene sceneID="cbH-np-HIJ">
             <objects>
                 <tableViewController id="5wY-DT-xUw" customClass="ListDetailViewConrtoller" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -257,7 +257,7 @@
                             <outlet property="delegate" destination="5wY-DT-xUw" id="x3d-v9-KuA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="AddList" id="ZaR-Rh-Ygp">
+                    <navigationItem key="navigationItem" title="List Name" id="ZaR-Rh-Ygp">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Z32-6I-Iv4">
                             <connections>
                                 <action selector="cancel" destination="5wY-DT-xUw" id="iIa-4o-HrG"/>
@@ -303,7 +303,13 @@
                             <outlet property="delegate" destination="DsQ-xi-R3W" id="pg1-SM-jip"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Icon" id="QQT-Mg-dYN"/>
+                    <navigationItem key="navigationItem" title="Choose Icon" id="QQT-Mg-dYN">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NIS-gu-m9b">
+                            <connections>
+                                <action selector="cancel" destination="DsQ-xi-R3W" id="m7e-QU-I6i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ng-bu-rox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

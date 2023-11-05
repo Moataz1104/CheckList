@@ -156,13 +156,13 @@
                     <navigationItem key="navigationItem" title="CheckLists" id="wYf-9X-t8v">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SzM-IA-Rq6">
                             <connections>
-                                <segue destination="5wY-DT-xUw" kind="show" identifier="addItem" id="fMA-T3-a4s"/>
+                                <segue destination="5wY-DT-xUw" kind="show" identifier="addList" id="fMA-T3-a4s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="urg-v4-wqc" kind="show" identifier="showItems" id="bkw-JX-r48"/>
-                        <segue destination="5wY-DT-xUw" kind="show" identifier="editItem" id="xdv-0G-pJX"/>
+                        <segue destination="5wY-DT-xUw" kind="show" identifier="editList" id="xdv-0G-pJX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ht-Z9-oYA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -311,7 +311,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xdv-0G-pJX"/>
+        <segue reference="fMA-T3-a4s"/>
         <segue reference="cKX-kf-nNR"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -22,14 +22,14 @@ class AllListsViewController:UITableViewController {
     
 //    MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier=="editItem"{
+        if segue.identifier=="editList"{
             let controller=segue.destination as! ListDetailViewConrtoller
             controller.delegate=self
             if let indexPath=sender as? IndexPath{
                 controller.listToEdit=listsData[indexPath.row]
             }
             
-        }else if segue.identifier == "addItem"{
+        }else if segue.identifier == "addList"{
             let controller=segue.destination as! ListDetailViewConrtoller
             controller.delegate=self
         }else if segue.identifier == "showItems"{
@@ -56,7 +56,7 @@ extension AllListsViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentfier, for: indexPath)
         cell.textLabel?.text=listsData[indexPath.row].name
         cell.accessoryType = .detailDisclosureButton
-        cell.imageView?.image=UIImage(named: "Folder")
+        cell.imageView?.image=UIImage(named: listsData[indexPath.row].iconName)
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -65,7 +65,7 @@ extension AllListsViewController{
         tableView.deselectRow(at: indexPath, animated: true)
     }
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "editItem", sender: indexPath)
+        performSegue(withIdentifier: "editList", sender: indexPath)
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let index=listsData.firstIndex(of: listsData[indexPath.row])!
@@ -96,6 +96,7 @@ extension AllListsViewController:ListDetailViewConrtollerDelegate{
         let indexPath=IndexPath(row: index!, section: 0)
         if let cell = tableView.cellForRow(at: indexPath){
             cell.textLabel?.text=list.name
+            cell.imageView?.image=UIImage(named: list.iconName)
             
         }
         navigationController?.popViewController(animated: true)

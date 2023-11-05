@@ -28,11 +28,14 @@ class ListDetailViewConrtoller:UITableViewController{
         
         navigationItem.largeTitleDisplayMode = .never
         textField.becomeFirstResponder()
+        iconLabel.text="Icons"
         
         super.viewDidLoad()
         if let list=listToEdit{
             title="Edit List Name"
             textField.text=list.name
+            iconLabel.text=list.iconName
+            iconImage.image=UIImage(named: list.iconName)
             doneBarButton.isEnabled=true
         }else{
             doneBarButton.isEnabled=false
@@ -44,9 +47,11 @@ class ListDetailViewConrtoller:UITableViewController{
     @IBAction func done(){
         if let list=listToEdit{
             list.name=textField.text!
+            list.iconName=iconLabel.text!
             delegate?.listDetailViewConrtoller(self, didFinishEditing: list)
         }else{
             let newList=CheckListData(name: textField.text!)
+            newList.iconName=iconLabel.text!
             delegate?.listDetailViewConrtoller(self, didFinishAdding: newList)
         }
     }

@@ -10,7 +10,6 @@ import UIKit
 
 
 class CheckListViewController: UITableViewController {
-//    var items=[ItemData]()
     var checkLists:CheckListData!
     override func viewDidLoad() {
         title=checkLists.name
@@ -44,11 +43,13 @@ extension CheckListViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCell", for: indexPath) as! ItemCell
         configureCell(cell, item: checkLists.itemsList[indexPath.row])
+        configureCheckMark(cell, item: checkLists.itemsList[indexPath.row])
         
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? ItemCell{
+            checkLists.itemsList[indexPath.row].check.toggle()
             configureCheckMark(cell, item: checkLists.itemsList[indexPath.row])
         }
         tableView.deselectRow(at: indexPath, animated: true)

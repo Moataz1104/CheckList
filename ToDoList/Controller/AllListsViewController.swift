@@ -60,7 +60,7 @@ extension AllListsViewController{
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let checkLists=CheckListData(name: listsData[indexPath.row].name)
+        let checkLists=listsData[indexPath.row]
         performSegue(withIdentifier: "showItems", sender: checkLists)
         tableView.deselectRow(at: indexPath, animated: true)
     }

@@ -10,14 +10,13 @@ import UIKit
 
 func configureCheckMark(_ cell:UITableViewCell , item:ItemData){
     let cell = cell as! ItemCell
-    if item.check == false{
+    
+    if item.check{
         cell.checkMark.text="✓"
-        item.check.toggle()
     }else{
         cell.checkMark.text=""
-        item.check.toggle()
     }
-    
+
 }
 
 func configureCell(_ cell:UITableViewCell , item:ItemData){

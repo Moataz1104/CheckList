@@ -55,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009F54BC2AF8BC8300336DAC /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				00B8C1072AF09B2100373223 /* ItemData.swift */,
+				00B8C10A2AF09BA400373223 /* CheckListData.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		00B8C0DB2AF0937000373223 = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +99,7 @@
 		00B8C0FE2AF0938400373223 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				00B8C1072AF09B2100373223 /* ItemData.swift */,
-				00B8C10A2AF09BA400373223 /* CheckListData.swift */,
+				009F54BC2AF8BC8300336DAC /* DataModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";

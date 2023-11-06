@@ -32,7 +32,7 @@ class ListDetailViewConrtoller:UITableViewController{
         
         super.viewDidLoad()
         if let list=listToEdit{
-            title="Edit List Name"
+            title="Edit List"
             textField.text=list.name
             iconLabel.text=list.iconName
             iconImage.image=UIImage(named: list.iconName)

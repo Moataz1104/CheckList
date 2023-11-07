@@ -6,19 +6,19 @@
 //
 
 import UIKit
-import Foundation
 
-class CheckListData:Equatable {
+class CheckListData:Equatable,Codable {
     static func == (lhs: CheckListData, rhs: CheckListData) -> Bool {
         lhs.name==rhs.name
     }
     var name:String=""
     var itemsList:[ItemData]=[]
-    var iconName="No Folder"
+    var iconName="Folder"
     init(name: String) {
         self.name = name
+        
     }
-
     
-
+    
 }
+

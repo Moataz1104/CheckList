@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002CD3152AFA2F090010B617 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002CD3142AFA2F090010B617 /* DataModel.swift */; };
 		0088FB462AF4A17F00BAB503 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088FB452AF4A17F00BAB503 /* IconPickerViewController.swift */; };
 		00B8C0E82AF0937000373223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B8C0E72AF0937000373223 /* AppDelegate.swift */; };
 		00B8C0EA2AF0937000373223 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B8C0E92AF0937000373223 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		002CD3142AFA2F090010B617 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0088FB452AF4A17F00BAB503 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 		00B8C0E42AF0937000373223 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B8C0E72AF0937000373223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				00B8C1072AF09B2100373223 /* ItemData.swift */,
+				002CD3142AFA2F090010B617 /* DataModel.swift */,
 				00B8C10A2AF09BA400373223 /* CheckListData.swift */,
 			);
 			path = DataModel;
@@ -219,6 +222,7 @@
 				0088FB462AF4A17F00BAB503 /* IconPickerViewController.swift in Sources */,
 				00D9D74A2AF32B0400284C5B /* ListDetailViewConrtoller.swift in Sources */,
 				00B8C0E82AF0937000373223 /* AppDelegate.swift in Sources */,
+				002CD3152AFA2F090010B617 /* DataModel.swift in Sources */,
 				00B8C1062AF09A0300373223 /* ItemDetailViewController.swift in Sources */,
 				00D9D7442AF319B700284C5B /* HelperMethods.swift in Sources */,
 				00B8C0EA2AF0937000373223 /* SceneDelegate.swift in Sources */,

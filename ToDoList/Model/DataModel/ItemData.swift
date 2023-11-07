@@ -6,7 +6,7 @@
 //
 
 
-class ItemData:Equatable{
+class ItemData:Equatable,Codable{
     static func == (lhs: ItemData, rhs: ItemData) -> Bool {
         return lhs.text == rhs.text
     }

@@ -14,10 +14,13 @@ class AllListsViewController:UITableViewController {
     
     let listCellIdentfier = "listCell"
     override func viewDidLoad() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentfier)
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentfier)
 
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     
@@ -55,13 +58,19 @@ extension AllListsViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentfier, for: indexPath)
+        let cell : UITableViewCell!
+        if let tmp = tableView.dequeueReusableCell(withIdentifier: listCellIdentfier){
+            cell=tmp
+        }else{
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: listCellIdentfier)
+        }
+            
         
         let listItem = dataModel.lists[indexPath.row]
         
         cell.textLabel?.text=listItem.name
         cell.accessoryType = .detailDisclosureButton
+        cell.detailTextLabel!.text=listItem.cellSubtitle()
         cell.imageView!.image=UIImage(named: listItem.iconName)
         
         return cell

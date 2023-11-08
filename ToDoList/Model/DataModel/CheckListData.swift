@@ -19,6 +19,35 @@ class CheckListData:Equatable,Codable {
         
     }
     
+    func countUnChecked() -> Int{
+        if itemsList.count == 0{
+            return -1
+        }
+        var cn = 0
+        for item in itemsList where !item.check {
+            cn += 1
+        }
+        return cn
+    }
+    
+    func cellSubtitle() -> String{
+        var cn = countUnChecked()
+        var text=""
+        switch cn{
+        case 0:
+            text = "All Done!"
+        case -1:
+            text = "No Items"
+        case 1:
+            text = "1 Item left"
+        default:
+            text = "\(cn) Items left"
+        }
+        
+        
+        return text
+    }
+    
     
 }
 

@@ -51,7 +51,11 @@ class ListDetailViewConrtoller:UITableViewController{
             delegate?.listDetailViewConrtoller(self, didFinishEditing: list)
         }else{
             let newList=CheckListData(name: textField.text!)
-            newList.iconName=iconLabel.text!
+            if iconLabel.text=="Icons"{
+                newList.iconName="Folder"
+            }else{
+                newList.iconName=iconLabel.text!
+            }
             delegate?.listDetailViewConrtoller(self, didFinishAdding: newList)
         }
     }

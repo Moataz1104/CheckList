@@ -77,16 +77,30 @@ class ListDetailViewConrtoller:UITableViewController{
 extension ListDetailViewConrtoller:UITextFieldDelegate{
     
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let oldText = textField.text!
-        let stringRange = Range(range, in: oldText)!
-        let newText = oldText.replacingCharacters(
-            in: stringRange,
-            with: string)
-        doneBarButton.isEnabled = !newText.isEmpty
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let oldText = textField.text!
+//        let stringRange = Range(range, in: oldText)!
+//        let newText = oldText.replacingCharacters(
+//            in: stringRange,
+//            with: string)
+//        doneBarButton.isEnabled = !newText.isEmpty
+//        return true
+//    }
     
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            // Get the updated text after the user's input
+            let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+            
+            // Check if the updated text is empty
+            let isTextEmpty = updatedText?.isEmpty ?? true
+            
+            // Enable or disable the "Done" button based on the text's emptiness
+            doneBarButton.isEnabled = !isTextEmpty
+            
+            return true
+        }
+    
+
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         doneBarButton.isEnabled=false
         return true

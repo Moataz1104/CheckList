@@ -5,7 +5,6 @@
 //  Created by Moataz Mohamed on 31/10/2023.
 //
 
-import UIKit
 
 class CheckListData:Equatable,Codable {
     static func == (lhs: CheckListData, rhs: CheckListData) -> Bool {
@@ -31,7 +30,7 @@ class CheckListData:Equatable,Codable {
     }
     
     func cellSubtitle() -> String{
-        var cn = countUnChecked()
+        let cn = countUnChecked()
         var text=""
         switch cn{
         case 0:
